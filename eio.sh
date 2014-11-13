@@ -21,8 +21,8 @@ case "$1" in
 	    cd ~/opt/build/eio/EnhanceIO/Driver/enhanceio
 	    make clean
 	    make && make install
+	    chmod 700 ~/opt/build/eio/EnhanceIO/CLI/eio_cli
    	    cp ~/opt/build/eio/EnhanceIO/CLI/eio_cli /sbin/
-   	    chmod 700 ~/opt/build/eio/EnhanceIO/CLI/eio_cli
 	    awk '!/enhanceio/' $MODFILE > $TMODFILE && cp $TMODFILE $MODFILE # removing old possible records 
 	    echo -e "enhanceio_fifo\nenhanceio_lru\nenhanceio" >> $MODFILE
             modprobe enhanceio_fifo
